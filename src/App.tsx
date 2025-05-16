@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import GameHeader from './components/Header';
 import RuneSpawn from './components/RuneSpawn';
 import HeroSelect from './components/HeroSelect';
@@ -12,23 +12,6 @@ function App() {
 
   const gameRef = useRef<HTMLDivElement>(null);
   const scrollToGame = () => gameRef.current?.scrollIntoView({ behavior: 'smooth' });
-
-  const [lastPressedKey, setLastPressedKey] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      const key = e.key.toUpperCase();
-      if (['Q', 'W', 'E', 'R'].includes(key)) {
-        setLastPressedKey(key);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const handleKeyHandled = () => {
-    setLastPressedKey(null);
-  };
 
   return (
     <div>
@@ -49,10 +32,7 @@ function App() {
         {error && <p style={{ color: 'red', marginTop: '1rem' }}>{error}</p>}
 
         <div ref={gameRef}>
-          <InvokerTrainerSection
-            keyPressed={lastPressedKey}
-            onKeyHandled={handleKeyHandled}
-          />
+          <InvokerTrainerSection />
         </div>
       </main>
     </div>

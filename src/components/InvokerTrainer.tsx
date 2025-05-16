@@ -9,7 +9,7 @@ import {
 } from '@mantine/core';
 import { useSpell } from '../hooks/useSpell';
 import { SPELL_IMAGES } from '../constants/spellImages';
-import type { CastResult } from '../api/spell'; 
+import type { CastResult } from '../api/spell';
 
 const ORB_IMAGES: Record<string, string> = {
   Q: '/orbs/q.png',
@@ -19,11 +19,9 @@ const ORB_IMAGES: Record<string, string> = {
 
 interface Props {
   onFinish: () => void;
-  keyPressed: string | null;
-  onKeyHandled: () => void;
 }
 
-function InvokerTrainer({ onFinish, keyPressed, onKeyHandled }: Props) {
+function InvokerTrainer({ onFinish }: Props) {
   const [started, setStarted] = useState(false);
   const [input, setInput] = useState<string[]>([]);
   const [score, setScore] = useState(0);
@@ -87,12 +85,6 @@ function InvokerTrainer({ onFinish, keyPressed, onKeyHandled }: Props) {
     },
     [started, finished, sendInput, invoke]
   );
-
-  useEffect(() => {
-    if (!started || finished || !keyPressed) return;
-    handleKey(keyPressed);
-    onKeyHandled();
-  }, [keyPressed, started, finished, handleKey, onKeyHandled]);
 
   const startGame = async () => {
     await refresh();

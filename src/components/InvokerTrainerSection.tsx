@@ -2,12 +2,7 @@ import { useState } from 'react';
 import { Button, Container, Stack, Title, Text } from '@mantine/core';
 import InvokerTrainer from './InvokerTrainer';
 
-interface Props {
-  keyPressed: string | null;
-  onKeyHandled: () => void;
-}
-
-function InvokerTrainerSection({ keyPressed, onKeyHandled }: Props) {
+function InvokerTrainerSection() {
   const [show, setShow] = useState(false);
 
   return (
@@ -38,11 +33,7 @@ function InvokerTrainerSection({ keyPressed, onKeyHandled }: Props) {
           </Button>
         </Stack>
       ) : (
-        <InvokerTrainer
-          onFinish={() => setShow(false)}
-          keyPressed={keyPressed}
-          onKeyHandled={onKeyHandled}
-        />
+        <InvokerTrainer onFinish={() => setShow(false)} />
       )}
     </Container>
   );
