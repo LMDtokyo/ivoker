@@ -11,13 +11,13 @@ export interface CastResult {
   spell: Spell;
 }
 
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
 
 // 🔁 Получить текущий активный спелл
 export async function fetchSpell(): Promise<Spell> {
   const res = await fetch(`${BASE_URL}/spell`);
   if (!res.ok) throw new Error("Failed to fetch spell");
-  return res.json();
+  return await res.json();
 }
 
 // 🧪 (необязательный старый метод)
@@ -59,5 +59,5 @@ export async function invokeSpell(): Promise<CastResult | null> {
 export async function getInputBuffer(): Promise<string[]> {
   const res = await fetch(`${BASE_URL}/input/buffer`);
   if (!res.ok) throw new Error("Failed to fetch input buffer");
-  return res.json();
+  return await res.json();
 }

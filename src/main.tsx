@@ -13,9 +13,13 @@ const theme = createTheme({
   defaultRadius: 'md',
   fontFamily: 'Cinzel, serif',
   colors: {
-    dark: ['#181818', '#1e1e1e', '#232323', '#292929', '#2f2f2f'],
+    dark: [
+      '#181818', '#1e1e1e', '#232323', '#292929', '#2f2f2f',
+      '#353535', '#3b3b3b', '#414141', '#474747', '#4d4d4d'
+    ],
   },
 });
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
