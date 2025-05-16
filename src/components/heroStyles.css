@@ -1,0 +1,50 @@
+.hero-raw-container {
+    position: relative;
+    /* или просто убери вообще */
+    margin: 2rem auto;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hero-image {
+    width: 280px;
+    /* ЕЩЁ БОЛЬШЕ */
+    height: 280px;
+    /* ЕЩЁ БОЛЬШЕ */
+    object-fit: contain;
+    filter: drop-shadow(0 0 24px #f3e97a);
+    transition: transform 0.3s ease;
+}
+
+.hero-name {
+    margin-top: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #e0b322;
+    text-align: center;
+    text-shadow: 0 0 8px #000;
+    pointer-events: none;
+}
+.hero-select-button {
+    margin-top: 1rem;
+    color: #f3e97a;
+    border: 2px solid #f3e97a;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.hero-select-button:hover {
+    background-color: #f3e97a;
+    color: #111;
+    box-shadow: 0 0 12px #f3e97a;
+}
